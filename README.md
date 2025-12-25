@@ -1,51 +1,51 @@
-# Restoran Sipariş ve Yönetim Sistemi (C++)
+# Restaurant Order and Management System (C++)
 
-Bu proje, C++ dili kullanılarak geliştirilmiş konsol tabanlı bir Restoran Sipariş ve Yönetim Sistemi'dir. Proje, **Nesne Yönelimli Programlama (OOP)** prensiplerini uygulamalı olarak göstermek amacıyla bir dönem projesi olarak hazırlanmıştır.
+This project is a console-based Restaurant Order and Management System developed using the C++ language. The project was prepared as a term project to practically demonstrate the principles of **Object-Oriented Programming (OOP)**.
 
-## Projenin Amacı
+## Project Goal
 
-Uygulamanın temel amacı, OOP'nin temel kavramlarını (Kalıtım, Çok Biçimlilik, Kapsülleme) kullanarak gerçek hayata benzer bir senaryoyu modellemektir. Sistem, müşteri ve restoran yönetimi gibi iki ana modülden oluşur.
+The main goal of the application is to model a real-life scenario using the fundamental concepts of OOP (Inheritance, Polymorphism, Encapsulation). The system consists of two main modules: customer and restaurant management.
 
-Kullanıcılar sisteme girerek;
-- Farklı restoranları listeleyebilir,
-- Menüleri inceleyebilir,
-- Sipariş oluşturabilir ve sipariş geçmişini görüntüleyebilir.
+Users can access the system to:
+- List different restaurants,
+- Browse menus,
+- Create orders and view order history.
 
-Yöneticiler ise;
-- Menüye yeni ürün ekleyebilir,
-- Yeni çalışanları sisteme dahil edebilir,
-- Çalışan bilgilerini listeleyebilir.
+Managers can:
+- Add new items to the menu,
+- Add new employees to the system,
+- List employee information.
 
-## Sergilenen OOP Konseptleri
+## Demonstrated OOP Concepts
 
-- **Sınıflar (Classes):** `Restaurant`, `User`, `Customer`, `Employee`, `Manager`, `MenuItem`, `Order` gibi iyi tanımlanmış sınıflar mevcuttur.
-- **Kalıtım (Inheritance):** 
-  - `User` sınıfından `Customer` ve `Employee` sınıfları türetilmiştir.
-  - `Employee` sınıfından `Manager` ve `DeliveryPerson` sınıfları türetilmiştir.
-  - `MenuItem` soyut sınıfından `FoodItem` ve `DrinkItem` sınıfları türetilmiştir.
-- **Çok Biçimlilik (Polymorphism):** 
-  - `displayInfo()` ve `work()` gibi `virtual` fonksiyonlar sayesinde, temel sınıf işaretçisi üzerinden türemiş sınıfın doğru metodunun çağrılması sağlanmıştır.
-  - `MenuItem` işaretçisi dizisi, hem `FoodItem` hem de `DrinkItem` nesnelerini tutabilmektedir.
-- **Soyut Sınıflar (Abstract Classes):** `MenuItem` ve `Employee` gibi soyut sınıflar, belirli fonksiyonların (`showItem()`, `work()` vb.) türemiş sınıflar tarafından zorunlu olarak uygulanmasını sağlamak için kullanılmıştır.
-- **Kapsülleme (Encapsulation):** Sınıf veri üyeleri `private` veya `protected` olarak tanımlanmış ve bu üyelere yalnızca `public` arayüz (getter/setter metodları) üzerinden kontrollü erişim sağlanmıştır.
+- **Classes:** Well-defined classes such as `Restaurant`, `User`, `Customer`, `Employee`, `Manager`, `MenuItem`, `Order` are present.
+- **Inheritance:**
+  - `Customer` and `Employee` classes are derived from the `User` class.
+  - `Manager` and `DeliveryPerson` classes are derived from the `Employee` class.
+  - `FoodItem` and `DrinkItem` classes are derived from the `MenuItem` abstract class.
+- **Polymorphism:**
+  - Thanks to `virtual` functions like `displayInfo()` and `work()`, the correct method of the derived class is called via the base class pointer.
+  - The `MenuItem` pointer array can hold both `FoodItem` and `DrinkItem` objects.
+- **Abstract Classes:** Abstract classes like `MenuItem` and `Employee` are used to ensure that certain functions (`showItem()`, `work()` etc.) are compulsorily implemented by derived classes.
+- **Encapsulation:** Class data members are defined as `private` or `protected`, and controlled access to these members is provided only through the `public` interface (getter/setter methods).
 
-> **Not:** Bu projenin gereksinimleri doğrultusunda, bellek yönetiminin temelini anlamak amacıyla `std::vector`, `std::list` gibi **STL (Standard Template Library)** koleksiyonları **kullanılmamıştır**. Bunun yerine, dinamik diziler ve manuel bellek yönetimi (`new[]`, `delete[]`) tercih edilmiştir.
+> **Note:** In line with the requirements of this project, **STL (Standard Template Library)** collections such as `std::vector` and `std::list` **were not used** to understand the basics of memory management. Instead, dynamic arrays and manual memory management (`new[]`, `delete[]`) were preferred.
 
-## Nasıl Derlenir ve Çalıştırılır?
+## How to Compile and Run
 
-Projeyi derlemek ve çalıştırmak için bir C++ derleyicisine (örneğin g++) ihtiyacınız vardır.
+You need a C++ compiler (e.g., g++) to compile and run the project.
 
-1.  **Terminali/Komut İstemi'ni açın** ve projenin klasörüne gidin (örneğin, GitHub'dan indirdikten sonra):
+1.  **Open your terminal/command prompt** and navigate to the project folder (e.g., after cloning from GitHub):
     ```bash
-    cd path/to/your/project-folder # Kendi proje dizininizin yolunu buraya yazın
+    cd path/to/your/project-folder # Replace with your actual project directory path
     ```
 
-2.  **Aşağıdaki komutu kullanarak tüm `.cpp` dosyalarını derleyin:**
+2.  **Compile all `.cpp` files using the following command:**
     ```bash
-    g++ -o restaurant_uygulamasi main.cpp user.cpp customer.cpp employee.cpp manager.cpp delıveryperson.cpp restaurant.cpp order.cpp menuıtem.cpp foodıtem.cpp drınkıtem.cpp
+    g++ -o restaurant_app main.cpp user.cpp customer.cpp employee.cpp manager.cpp delıveryperson.cpp restaurant.cpp order.cpp menuıtem.cpp foodıtem.cpp drınkıtem.cpp
     ```
 
-3.  **Derleme işlemi tamamlandıktan sonra uygulamayı çalıştırın:**
+3.  **After compilation is complete, run the application:**
     ```bash
-    ./restaurant_uygulamasi.exe
+    ./restaurant_app.exe
     ```
